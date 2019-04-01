@@ -8,13 +8,12 @@ RUN yum -y install python36u-pip
 RUN pip3.6 install --upgrade pip
 RUN yum -y install python36u-devel
 RUN pip3.6 install butterfly
-# COPY ./docker-entrypoint.sh /
 COPY ./pywumpus.sh /
-#RUN chmod u+x /docker-entrypoint.sh
 RUN chmod u+x /pywumpus.sh
+# COPY ./docker-entrypoint.sh /
+#RUN chmod u+x /docker-entrypoint.sh
 WORKDIR /opt
 RUN git clone https://github.com/lanhel/pywumpus.git
-# WORKDIR /opt/pywumpus/
 EXPOSE 57575
 
 #ENTRYPOINT ["/docker-entrypoint.sh"]
